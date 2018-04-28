@@ -1,0 +1,34 @@
+{
+    "name": "mauroerta/laravel",
+    "authors": [
+        {
+            "name": "Mauro",
+            "email": "mauro.erta@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mauro\\Commands\\": "commands/src/",
+            "Mauro\\Traits\\": "traits/src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": [
+            ],
+            "providers": [
+                "Mauro\\Commands\\CommandServiceProvider"
+            ],
+            "aliases": {
+
+            }
+        }
+    },
+    "description": "Some laravel commands.",
+    "keywords": ["laravel", "commands", "package"],
+    "license": "MIT",
+    "version": "0.0.4"
+}

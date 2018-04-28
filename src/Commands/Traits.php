@@ -4,7 +4,7 @@ namespace Mauro\Commands;
 
 use Illuminate\Console\Command;
 
-class Trait extends Command
+class Traits extends Command
 {
     /**
      * The name and signature of the console command.

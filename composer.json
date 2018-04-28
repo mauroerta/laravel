@@ -11,7 +11,7 @@
     "description": "Some laravel commands.",
     "keywords": ["laravel", "commands", "package"],
     "license": "MIT",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "autoload": {
         "psr-4": {
             "ME\\": "src/"

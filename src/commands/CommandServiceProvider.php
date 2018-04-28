@@ -2,8 +2,6 @@
 
 namespace Mauro\Commands;
 
-use Mauro\Commands\TraitCommand\Traits;
-
 use Illuminate\Support\ServiceProvider;
 
 class CommandServiceProvider extends ServiceProvider
@@ -17,7 +15,7 @@ class CommandServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->commands([
-                Traits::class
+                Trait::class
             ]);
         }
     }

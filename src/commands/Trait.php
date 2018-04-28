@@ -1,10 +1,10 @@
 <?php
 
-namespace Mauro\Commands\TraitCommand;
+namespace Mauro\Commands;
 
 use Illuminate\Console\Command;
 
-class Traits extends Command
+class Trait extends Command
 {
     /**
      * The name and signature of the console command.
@@ -38,22 +38,22 @@ class Traits extends Command
     public function handle()
     {
         $name = $this->argument('name');
-        $template = "<?php\n\nnamespace App\Traits;\n\ntrait $name\n{\n\t// Your code\n}";
+        $template = "<?php\n\nnamespace App\Traits;\n\ntrait {$name}\n{\n\t// Your code\n}";
         $folder = app_path("Traits");
         if(!file_exists($folder)) {
             if(!mkdir($folder)) {
-                $this->error('Impossible to create the folder: ' . $folder);
+                $this->error(__("Impossible to create the folder: {$folder}"));
                 return;
             }
             else {
-                $this->info('Folder ' . $folder . ' created.');
+                $this->info(__("Folder {$folder} created."));
             }
         }
 
         $path = $folder . '\\' . $name . '.php';
 
         if(file_exists($path)) {
-            $response = $this->ask("File $path exists, Do you want to override this file? (yes)");
+            $response = $this->ask(__("File {$path} exists, Do you want to override this file? (yes)"));
             if(!in_array(strtolower($response), ['yes', 'y', '']))
                 return;
         }
@@ -61,11 +61,11 @@ class Traits extends Command
         $file = fopen($path, "w");
 
         if(!fwrite($file, $template)) {
-            $this->error("Impossible to create the file: $path");
+            $this->error(__("Impossible to create the file: {$path}"));
             return;
         }
         else {
-            $this->info("Trait $name created.");
+            $this->info(__("Trait {$name} created."));
         }
     }
 }

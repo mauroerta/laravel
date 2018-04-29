@@ -73,7 +73,7 @@ trait Draftable {
      * @return User
      */
     public function draftedBy() {
-        return $this->belongsTo(config('me_trait.user_model', 'App\User'), $this->{$this->getDraftedAtColumn()});
+        return $this->belongsTo(config('me_trait.draftable.user_model', 'App\User'), $this->{$this->getDraftedAtColumn()});
     }
 
     /**
@@ -122,7 +122,7 @@ trait Draftable {
      * @return string
      */
     public function getUserModelClass() {
-        return config('me_trait.user_model', 'App\User');
+        return config('me_trait.draftable.user_model', 'App\User');
     }
 
     /**
@@ -131,7 +131,7 @@ trait Draftable {
      * @return string
      */
     public static function DRAFTED_AT() {
-        return config('me_trait.drafted_at_column', 'drafted_at');
+        return config('me_trait.draftable.drafted_at_column', 'drafted_at');
     }
 
     /**
@@ -140,6 +140,6 @@ trait Draftable {
      * @return string
      */
     public static function DRAFTED_BY() {
-        return config('me_trait.drafted_by_column', 'drafted_by');
+        return config('me_trait.draftable.drafted_by_column', 'drafted_by');
     }
 }

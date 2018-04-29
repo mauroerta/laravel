@@ -14,9 +14,9 @@ class TraitServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/config/me_traits.php' => config_path('me_traits.php'),
+            __DIR__.'/config/me_trait.php' => config_path('me_trait.php'),
         ]);
-        
+
         $this->loadMigrationsFrom(__DIR__.'/migrations');
     }
 

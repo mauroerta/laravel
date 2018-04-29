@@ -1,6 +1,7 @@
 <?php
 
 return [
+    
     /**
      * CONFIGURATIONS FOR THE LINKABLE TRAIT
      */

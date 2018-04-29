@@ -1,5 +1,5 @@
 <?php
-namespace App\Traits;
+namespace ME\Traits;
 
 trait Linkable
 {

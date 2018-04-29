@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits;
+namespace ME\Traits;
 
 trait Slugable
 {
@@ -24,6 +24,7 @@ trait Slugable
         }
 
         $response = str_slug($slug);
+        \Log::debug("\n\n\n\n\nNome: ".self::getSlugColumnName()."\n\n\n\n\n\n");
         for($i = 1; self::where(self::getSlugColumnName(), $response)->where('id', '!=', $except)->exists(); $i++) {
             $response = str_slug("{$slug}-{$i}");
         }
@@ -45,7 +46,7 @@ trait Slugable
      * @return string The slug column name
      */
     public static function getSlugColumnName() {
-        return config("me-trait.slugable.tables.{$this->table}.column", 'slug')
+        return isset(self::$slugable_options) && isset(self::$slugable_options['slug_column_name']) ? self::$slugable_options['slug_column_name'] : 'name';
     }
 
     /**
@@ -58,7 +59,7 @@ trait Slugable
      * @return string The desired column name
      */
     public static function getDesiredColumnName() {
-        return config("me-trait.slugable.tables.{$this->table}.desired", 'title')
+        return isset(self::$slugable_options) && isset(self::$slugable_options['desired_column_name']) ? self::$slugable_options['desired_column_name'] : 'name';
     }
 
     /**

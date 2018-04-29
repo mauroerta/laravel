@@ -19,7 +19,8 @@
     "extra": {
         "laravel": {
             "providers": [
-                "ME\\Commands\\CommandServiceProvider"
+                "ME\\Commands\\CommandServiceProvider",
+                "ME\\Traits\\TraitServiceProvider"
             ]
         }
     }

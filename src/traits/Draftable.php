@@ -5,12 +5,15 @@ use Auth;
 use App\User;
 
 trait Draftable {
+    public static DRAFTED_AT = config('me_trait.drafted_at_column', 'drafted_at');
+    public static DRAFTED_BY = config('me_trait.drafted_by_column', 'drafted_by');
+
     /**
      * Get all the drafted items
      * @return Illuminate\Database\Eloquent\Collection
      */
     public static function drafted() {
-        return self::where('drafted_at', '!=', null)->get();
+        return self::where(self::DRAFTED_AT, '!=', null)->get();
     }
 
     /**
@@ -18,7 +21,7 @@ trait Draftable {
      * @return Illuminate\Database\Eloquent\Collection
      */
     public static function undrafted() {
-        return self::where('drafted_at', null)->get();
+        return self::where(self::DRAFTED_AT, null)->get();
     }
 
     /**
@@ -53,8 +56,8 @@ trait Draftable {
 
         if(!Auth::user()->isAdmin()) return false;
 
-        $this->drafted_at = null;
-        $this->drafted_by = Auth::user()->id;
+        $this->{self::DRAFTED_AT} = null;
+        $this->{self::DRAFTED_BY} = Auth::user()->id;
 
         return true;
     }
@@ -64,7 +67,7 @@ trait Draftable {
      * @return boolean
      */
     public function isDrafted() {
-        return $this->drafted_at != null;
+        return $this->{self::DRAFTED_AT} != null;
     }
 
     /**
@@ -72,6 +75,46 @@ trait Draftable {
      * @return User
      */
     public function draftedBy() {
-        return $this->belongsTo(User::class, 'drafted_by');
+        return $this->belongsTo(User::class, self::DRAFTED_BY);
+    }
+
+    /**
+     * Get the name of the "drafted at" column.
+     *
+     * @return string
+     */
+    public function getDraftedAtColumn()
+    {
+        return defined('static::DRAFTED_AT') ? static::DRAFTED_AT : 'drafted_at';
+    }
+
+    /**
+     * Get the fully qualified "drafted at" column.
+     *
+     * @return string
+     */
+    public function getQualifiedDraftedAtColumn()
+    {
+        return $this->qualifyColumn($this->getDraftedAtColumn());
+    }
+
+    /**
+     * Get the name of the "drafted by" column.
+     *
+     * @return string
+     */
+    public function getDraftedByColumn()
+    {
+        return defined('static::DRAFTED_BY') ? static::DRAFTED_BY : 'drafted_by';
+    }
+
+    /**
+     * Get the fully qualified "drafted by" column.
+     *
+     * @return string
+     */
+    public function getQualifiedDraftedByColumn()
+    {
+        return $this->qualifyColumn($this->getDraftedByColumn());
     }
 }

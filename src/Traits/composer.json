@@ -1,0 +1,16 @@
+{
+    "name": "mauroerta/traits",
+    "description": "Some Traits",
+    "authors": [
+        {
+            "name": "Mauro",
+            "email": "mauro.erta@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "ME\\Traits\\": ""
+        }
+    },
+}

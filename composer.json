@@ -13,8 +13,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "ME\\Commands\\": "src/Commands/",
-            "ME\\Traits\\": "src/Traits/"
+            "ME\\": "src/"
         }
     },
     "extra": {

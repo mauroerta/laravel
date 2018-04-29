@@ -3,7 +3,8 @@ namespace ME\Traits;
 
 use Auth;
 
-trait Draftable {
+trait Draftable
+{    
     /**
      * Get all the drafted items
      * @return Illuminate\Database\Eloquent\Collection

@@ -1,5 +1,5 @@
 <?php
-namespace Mauro\Commands;
+namespace ME\Commands;
 
 use Illuminate\Support\ServiceProvider;
 

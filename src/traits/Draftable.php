@@ -2,7 +2,6 @@
 namespace ME\Traits;
 
 use Auth;
-use App\User;
 
 trait Draftable {
     /**
@@ -40,6 +39,7 @@ trait Draftable {
 
         $this->{$this->getDraftedAtColumn()} = date('Y-m-d H:i');
         $this->{$this->getDraftedByColumn()} = Auth::user()->id;
+        $this->save();
 
         return true;
     }
@@ -55,6 +55,7 @@ trait Draftable {
 
         $this->{$this->getDraftedAtColumn()} = null;
         $this->{$this->getDraftedByColumn()} = Auth::user()->id;
+        $this->save();
 
         return true;
     }
@@ -72,7 +73,7 @@ trait Draftable {
      * @return User
      */
     public function draftedBy() {
-        return $this->belongsTo(User::class, $this->{$this->getDraftedAtColumn()});
+        return $this->belongsTo(config('me_trait.user_model', 'App\User'), $this->{$this->getDraftedAtColumn()});
     }
 
     /**
@@ -113,6 +114,15 @@ trait Draftable {
     public function getQualifiedDraftedByColumn()
     {
         return $this->qualifyColumn($this->getDraftedByColumn());
+    }
+
+    /**
+     * Get the class name of the User Model
+     *
+     * @return string
+     */
+    public function getUserModelClass() {
+        return config('me_trait.user_model', 'App\User');
     }
 
     /**

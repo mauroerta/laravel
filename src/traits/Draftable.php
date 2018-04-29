@@ -1,5 +1,5 @@
 <?php
-namespace Mauro\Traits;
+namespace ME\Traits;
 
 use Auth;
 use App\User;

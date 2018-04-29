@@ -2,7 +2,8 @@
 
 namespace App\Traits;
 
-trait Slugable {
+trait Slugable
+{
     /**
      * Make a unique slug for this object
      * @param  mixed $parameters it can be the desidered slug or an array of parameters:

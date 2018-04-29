@@ -1,7 +1,7 @@
 <?php
 
 return [
-    
+
     /**
      * CONFIGURATIONS FOR THE LINKABLE TRAIT
      */
@@ -32,6 +32,7 @@ return [
             //     'column' => 'slug',
             //     'desired' => 'title'
             // ]
+            // ...
         ]
     ]
 ];

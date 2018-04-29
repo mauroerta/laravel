@@ -11,14 +11,11 @@ class SlugableAlterTables extends Migration
      *
      * @return void
      */
-    public function up()
-    {
+    public function up() {
         $tables = config('me_trait.slugable.tables', []);
 
         foreach ($tables as $table_name => $options) {
-            
             if (Schema::hasTable($table_name)) {
-
                 if(!is_array($options)) $options = [];
 
                 $options['column'] = isset($options['column']) ? $options['column'] : 'slug';

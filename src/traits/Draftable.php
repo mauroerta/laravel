@@ -4,7 +4,7 @@ namespace ME\Traits;
 use Auth;
 
 trait Draftable
-{    
+{
     /**
      * Get all the drafted items
      * @return Illuminate\Database\Eloquent\Collection
@@ -35,7 +35,6 @@ trait Draftable
      */
     public function draft() {
         if(Auth::guest()) return false;
-
         if(!Auth::user()->isAdmin()) return false;
 
         $this->{$this->getDraftedAtColumn()} = date('Y-m-d H:i');

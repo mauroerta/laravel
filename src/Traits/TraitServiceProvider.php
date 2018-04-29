@@ -11,8 +11,7 @@ class TraitServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
-    {
+    public function boot() {
         $this->publishes([
             __DIR__.'/config/me_trait.php' => config_path('me_trait.php'),
         ]);
@@ -25,8 +24,7 @@ class TraitServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
-    {
+    public function register() {
         //
     }
 }

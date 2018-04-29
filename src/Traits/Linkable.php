@@ -1,7 +1,8 @@
 <?php
 namespace App\Traits;
 
-trait Linkable {
+trait Linkable
+{
     /**
      * Get the url to the object
      * @param  boolean $only_path

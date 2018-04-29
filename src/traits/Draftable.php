@@ -5,15 +5,12 @@ use Auth;
 use App\User;
 
 trait Draftable {
-    public static DRAFTED_AT = config('me_trait.drafted_at_column', 'drafted_at');
-    public static DRAFTED_BY = config('me_trait.drafted_by_column', 'drafted_by');
-
     /**
      * Get all the drafted items
      * @return Illuminate\Database\Eloquent\Collection
      */
     public static function drafted() {
-        return self::where(self::DRAFTED_AT, '!=', null)->get();
+        return self::whereNotNull(self::DRAFTED_AT())->get();
     }
 
     /**
@@ -21,7 +18,7 @@ trait Draftable {
      * @return Illuminate\Database\Eloquent\Collection
      */
     public static function undrafted() {
-        return self::where(self::DRAFTED_AT, null)->get();
+        return self::whereNull(self::DRAFTED_AT())->get();
     }
 
     /**
@@ -41,8 +38,8 @@ trait Draftable {
 
         if(!Auth::user()->isAdmin()) return false;
 
-        $this->drafted_at = date('Y-m-d H:i');
-        $this->drafted_by = Auth::user()->id;
+        $this->{$this->getDraftedAtColumn()} = date('Y-m-d H:i');
+        $this->{$this->getDraftedByColumn()} = Auth::user()->id;
 
         return true;
     }
@@ -56,8 +53,8 @@ trait Draftable {
 
         if(!Auth::user()->isAdmin()) return false;
 
-        $this->{self::DRAFTED_AT} = null;
-        $this->{self::DRAFTED_BY} = Auth::user()->id;
+        $this->{$this->getDraftedAtColumn()} = null;
+        $this->{$this->getDraftedByColumn()} = Auth::user()->id;
 
         return true;
     }
@@ -67,7 +64,7 @@ trait Draftable {
      * @return boolean
      */
     public function isDrafted() {
-        return $this->{self::DRAFTED_AT} != null;
+        return $this->{$this->getDraftedAtColumn()} != null;
     }
 
     /**
@@ -75,7 +72,7 @@ trait Draftable {
      * @return User
      */
     public function draftedBy() {
-        return $this->belongsTo(User::class, self::DRAFTED_BY);
+        return $this->belongsTo(User::class, $this->{$this->getDraftedAtColumn()});
     }
 
     /**
@@ -85,7 +82,7 @@ trait Draftable {
      */
     public function getDraftedAtColumn()
     {
-        return defined('static::DRAFTED_AT') ? static::DRAFTED_AT : 'drafted_at';
+        return self::DRAFTED_AT();
     }
 
     /**
@@ -105,7 +102,7 @@ trait Draftable {
      */
     public function getDraftedByColumn()
     {
-        return defined('static::DRAFTED_BY') ? static::DRAFTED_BY : 'drafted_by';
+        return self::DRAFTED_BY();
     }
 
     /**
@@ -116,5 +113,23 @@ trait Draftable {
     public function getQualifiedDraftedByColumn()
     {
         return $this->qualifyColumn($this->getDraftedByColumn());
+    }
+
+    /**
+     * Get the name of the "drafted at" column.
+     *
+     * @return string
+     */
+    public static function DRAFTED_AT() {
+        return config('me_trait.drafted_at_column', 'drafted_at');
+    }
+
+    /**
+     * Get the name of the "drafted by" column.
+     *
+     * @return string
+     */
+    public static function DRAFTED_BY() {
+        return config('me_trait.drafted_by_column', 'drafted_by');
     }
 }

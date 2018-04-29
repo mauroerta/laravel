@@ -25,25 +25,4 @@ class AlterTables extends Migration
             }
         }
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        $tables = config('me_trait.tables', []);
-
-        foreach ($tables as $key => $table_name) {
-            if (Schema::hasTable($table_name)) {
-                Schema::table($table_name, function (Blueprint $table) {
-                    $table->dropColumn([
-                        config('me_trait.drafted_by_column', 'drafted_by'),
-                        config('me_trait.drafted_at_column', 'drafted_at')
-                    ]);
-                });
-            }
-        }
-    }
 }

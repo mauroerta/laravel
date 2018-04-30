@@ -10,7 +10,7 @@ class ObserverCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'make:observer {name : The name of the Observe} {--o|observe=user : The class you want to observe}';
+    protected $signature = 'make:observer {name : The name of the Observer} {--o|observe=App\\User : The class you want to observe}';
 
     /**
      * The console command description.
@@ -32,12 +32,12 @@ class ObserverCommand extends Command
     /**
      * Execute the console command.
      *
-     * @return mixed
+     * @return void
      */
     public function handle()
     {
         $name = $this->argument('name');
-        $observe = $this->option('observe') ? $this->option('observe') : 'App\User';
+        $observe = $this->option('observe') ? $this->option('observe') : 'App\\User';
         $class_parts = explode('\\', $observe);
         $class = end($class_parts);
         $folder = app_path("Observers");
@@ -66,7 +66,7 @@ class ObserverCommand extends Command
         }
 
         if(file_exists($path)) {
-            $response = $this->confirm("File {$path} exists, Do you want to override this file? (no)");
+            $response = $this->confirm("File {$path} exists, Do you want to override this file?", 'yes');
             if(!$response)
                 return;
         }
@@ -80,8 +80,8 @@ class ObserverCommand extends Command
         else {
             $this->info("Observer {$name} created.");
             $this->info("Remember, add this lines of code in the boot method of the AppServiceProvider:");
-            $this->info("use App\Observers\{$params['name']}");
-            $this->info("{$params['class']}::observe({$params['name']}::class);");
+            $this->info("use App\\Observers\\{$name}");
+            $this->info("{$class}::observe({$name}::class);");
         }
     }
 }

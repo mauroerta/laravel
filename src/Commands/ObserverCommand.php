@@ -38,15 +38,17 @@ class ObserverCommand extends Command
     {
         $name = $this->argument('name');
         $observe = $this->option('observe') ? $this->option('observe') : 'App\User';
+        $class_parts = explode('\\', $observe);
+        $class = end($class_parts);
         $folder = app_path("Observers");
         $path = $folder . '\\' . $name . '.php';
-        $template = file_get_contents('templates/observer.template');
+        $template = file_get_contents(__DIR__.'/templates/observer.template');
 
         $params = [
             'name' => $name,
             'observe' => $observe,
-            'class' => end(explode('\\', $observe)),
-            'object' => '$'.strotolower(end(explode('\\', $observe)))
+            'class' => $class,
+            'object' => '$'.strtolower($class)
         ];
 
         foreach ($params as $key => $value) {
@@ -77,7 +79,8 @@ class ObserverCommand extends Command
         }
         else {
             $this->info("Observer {$name} created.");
-            $this->info("Remember to add this line in the boot method of the AppServiceProvider:");
+            $this->info("Remember, add this lines of code in the boot method of the AppServiceProvider:");
+            $this->info("use App\Observers\{$params['name']}");
             $this->info("{$params['class']}::observe({$params['name']}::class);");
         }
     }

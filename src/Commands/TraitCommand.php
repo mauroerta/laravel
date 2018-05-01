@@ -23,7 +23,7 @@ class TraitCommand extends Command
      * The path to the template
      * @var string
      */
-    protected $template_path = __DIR_ . '/templates/trait.template';
+    protected $template_path = __DIR__ . '/templates/trait.template';
 
     /**
      * Create a new command instance.
@@ -63,7 +63,7 @@ class TraitCommand extends Command
                 return;
         }
 
-        $template = me_replace($template, ['name' => $name]);
+        $template = str_replace("{{name}}", $name, $template);
 
         $file = fopen($path, "w");
 

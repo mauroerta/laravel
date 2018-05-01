@@ -9,9 +9,6 @@
     ],
     "require": {},
     "autoload": {
-        "files": [
-            "helpers.php"
-        ],
         "psr-4": {
             "ME\\Commands\\": ""
         }

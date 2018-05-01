@@ -23,7 +23,7 @@ class ObserverCommand extends Command
      * The path to the template
      * @var string
      */
-    protected $template_path = __DIR_ . '/templates/observer.template';
+    protected $template_path = __DIR__ . '/templates/observer.template';
 
     /**
      * Create a new command instance.
@@ -57,7 +57,9 @@ class ObserverCommand extends Command
             'object' => '$'.strtolower($class)
         ];
 
-        $template = me_replace($template, $params);
+        foreach ($params as $key => $value) {
+            $template = str_replace("{{{$key}}}", $value, $template);
+        }
 
         if(!file_exists($folder)) {
             if(!mkdir($folder)) {
@@ -84,7 +86,7 @@ class ObserverCommand extends Command
         else {
             $this->info("Observer {$name} created.");
             $this->info("Remember, add this lines of code in the boot method of the AppServiceProvider:");
-            $this->info("use App\\Observers\\{$name}");
+            $this->info("use App\\Observers\\{$name};");
             $this->info("{$class}::observe({$name}::class);");
         }
     }

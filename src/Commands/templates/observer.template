@@ -1,0 +1,68 @@
+<?php
+
+namespace App\Observers;
+
+use {{observe}};
+
+class {{name}}
+{
+    /**
+     * Listen to the {{class}} creating event.
+     *
+     * @param  {{class}} {{object}}
+     * @return void
+     */
+    public function creating({{class}} {{object}}) {
+        //
+    }
+
+    /**
+     * Listen to the {{class}} created event.
+     *
+     * @param  {{class}} {{object}}
+     * @return void
+     */
+    public function created({{class}} {{object}}) {
+        //
+    }
+
+    /**
+     * Listen to the {{class}} updating event.
+     *
+     * @param  {{class}} {{object}}
+     * @return void
+     */
+    public function updating({{class}} {{object}}) {
+        //
+    }
+
+    /**
+     * Listen to the {{class}} updated event.
+     *
+     * @param  {{class}} {{object}}
+     * @return void
+     */
+    public function updated({{class}} {{object}}) {
+        //
+    }
+
+    /**
+     * Listen to the {{class}} deleting event.
+     *
+     * @param  {{class}} {{object}}
+     * @return void
+     */
+    public function deleting({{class}} {{object}}) {
+        //
+    }
+
+    /**
+     * Listen to the {{class}} deleted event.
+     *
+     * @param  {{class}} {{object}}
+     * @return void
+     */
+    public function deleted({{class}} {{object}}) {
+        //
+    }
+}

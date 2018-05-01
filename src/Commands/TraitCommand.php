@@ -3,7 +3,7 @@ namespace ME\Commands;
 
 use Illuminate\Console\Command;
 
-class Traits extends Command
+class TraitCommand extends Command
 {
     /**
      * The name and signature of the console command.
@@ -18,6 +18,12 @@ class Traits extends Command
      * @var string
      */
     protected $description = 'Create a new trait';
+
+    /**
+     * The path to the template
+     * @var string
+     */
+    protected $template_path = __DIR_ . '/templates/trait.template';
 
     /**
      * Create a new command instance.
@@ -39,7 +45,7 @@ class Traits extends Command
         $name = $this->argument('name');
         $folder = app_path("Traits");
         $path = $folder . '\\' . $name . '.php';
-        $template = "<?php\n\nnamespace App\Traits;\n\ntrait {$name}\n{\n\t// Your code\n}";
+        $template = file_get_contents($this->template_path);
 
         if(!file_exists($folder)) {
             if(!mkdir($folder)) {
@@ -56,6 +62,8 @@ class Traits extends Command
             if(!in_array(strtolower($response), ['yes', 'y', '']))
                 return;
         }
+
+        $template = me_replace($template, ['name' => $name]);
 
         $file = fopen($path, "w");
 

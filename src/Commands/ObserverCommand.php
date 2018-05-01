@@ -20,6 +20,12 @@ class ObserverCommand extends Command
     protected $description = 'Create a new observer';
 
     /**
+     * The path to the template
+     * @var string
+     */
+    protected $template_path = __DIR_ . '/templates/observer.template';
+
+    /**
      * Create a new command instance.
      *
      * @return void
@@ -42,7 +48,7 @@ class ObserverCommand extends Command
         $class = end($class_parts);
         $folder = app_path("Observers");
         $path = $folder . '\\' . $name . '.php';
-        $template = file_get_contents(__DIR__.'/templates/observer.template');
+        $template = file_get_contents($this->template_path);
 
         $params = [
             'name' => $name,
@@ -51,9 +57,7 @@ class ObserverCommand extends Command
             'object' => '$'.strtolower($class)
         ];
 
-        foreach ($params as $key => $value) {
-            $template = str_replace("{{{$key}}}", $value, $template);
-        }
+        $template = me_replace($template, $params);
 
         if(!file_exists($folder)) {
             if(!mkdir($folder)) {

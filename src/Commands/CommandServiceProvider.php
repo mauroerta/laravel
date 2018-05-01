@@ -14,7 +14,7 @@ class CommandServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->commands([
-                Traits::class,
+                TraitCommand::class,
                 ObserverCommand::class
             ]);
         }

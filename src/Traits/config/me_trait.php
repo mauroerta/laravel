@@ -15,17 +15,16 @@ return [
         'user_model' => 'App\User',
         'drafted_at_column' => 'drafted_at',
         'drafted_by_column' => 'drafted_by',
-        'tables' => [
-            'users', // 'some', 'other', 'tables'
-        ]
+        'tables' => ['users', 'draws']
     ],
-    
+
     /**
      * CONFIGURATIONS FOR THE SLUGABLE TRAIT
      */
     'slugable' => [
         'tables' => [
-            'users', // 'some', 'other', 'tables'
+            'users' => ['column' => 'username']
+            'articles' => ['column' => 'slug']
         ]
     ]
 ];

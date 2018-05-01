@@ -20,8 +20,6 @@ class TraitServiceProvider extends ServiceProvider
             __DIR__.'/migrations/draftable_alter_tables.php' => database_path('migrations/'.date('Y_m_d_His').'_draftable_alter_tables.php'),
             __DIR__.'/migrations/slugable_alter_tables.php' => database_path('migrations/'.date('Y_m_d_His').'_slugable_alter_tables.php'),
         ]);
-
-        $this->loadMigrationsFrom(__DIR__.'/migrations');
     }
 
     /**

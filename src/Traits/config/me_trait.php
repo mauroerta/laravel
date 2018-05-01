@@ -1,13 +1,13 @@
 <?php
 
 return [
-
     /**
      * CONFIGURATIONS FOR THE LINKABLE TRAIT
      */
     'linkable' => [
         'rest_base_url' => 'api'
     ],
+
     /**
      * CONFIGURATIONS FOR THE DRAFTABLE TRAIT
      */
@@ -19,10 +19,13 @@ return [
             'users', // 'some', 'other', 'tables'
         ]
     ],
+    
     /**
      * CONFIGURATIONS FOR THE SLUGABLE TRAIT
      */
     'slugable' => [
-        // 
+        'tables' => [
+            'users', // 'some', 'other', 'tables'
+        ]
     ]
 ];

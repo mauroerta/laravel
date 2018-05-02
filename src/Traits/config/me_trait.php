@@ -23,7 +23,7 @@ return [
      */
     'slugable' => [
         'tables' => [
-            'users' => ['column' => 'username']
+            'users' => ['column' => 'username'],
             'articles' => ['column' => 'slug']
         ]
     ]

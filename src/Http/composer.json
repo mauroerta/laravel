@@ -1,6 +1,6 @@
 {
-    "name": "mauroerta/traits",
-    "description": "Some Traits that I often use in laravel",
+    "name": "mauroerta/http",
+    "description": "Some Laravel middlewares",
     "authors": [
         {
             "name": "Mauro",
@@ -10,7 +10,8 @@
     "require": {},
     "autoload": {
         "psr-4": {
-            "ME\\Traits\\": ""
+            "ME\\Http\\": "",
+            "ME\\Http\\Middleware\\": "Middleware",
         }
     },
 }

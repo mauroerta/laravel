@@ -14,11 +14,11 @@ class TraitServiceProvider extends ServiceProvider
     public function boot() {
         $this->publishes([
             __DIR__.'/config/me_trait.php' => config_path('me_trait.php'),
-        ], 'config');
+        ], 'mauroerta-traits-config');
 
         $this->publishes([
             __DIR__.'/migrations' => database_path('migrations'),
-        ], 'database');
+        ], 'mauroerta-traits-database');
     }
 
     /**

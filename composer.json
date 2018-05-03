@@ -20,7 +20,8 @@
         "laravel": {
             "providers": [
                 "ME\\Commands\\CommandServiceProvider",
-                "ME\\Traits\\TraitServiceProvider"
+                "ME\\Traits\\TraitServiceProvider",
+                "ME\\Notifications\\NotificationServiceProvider"
             ]
         }
     }

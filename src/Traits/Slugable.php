@@ -24,7 +24,7 @@ trait Slugable
         }
 
         $response = str_slug($slug);
-        \Log::debug("\n\n\n\n\nNome: ".self::getSlugColumnName()."\n\n\n\n\n\n");
+        
         for($i = 1; self::where(self::getSlugColumnName(), $response)->where('id', '!=', $except)->exists(); $i++) {
             $response = str_slug("{$slug}-{$i}");
         }

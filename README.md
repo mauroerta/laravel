@@ -40,6 +40,23 @@ Now you have 2 new commands:
 php artisan make:trait
 php artisan make:observer Name --observe=App\\Class\\To\\Observe
 ```
+When you use the make:observer command you have to update the AppServiceProvider.php file:
+Example of UserObserver:
+
+```
+php artisan make:observer UserObserver --observe=App\\User
+```
+
+```
+// ...
+use App\Observers\UserObserver;
+// ...
+public function boot()
+{
+    // ...
+    App\User::observe(UserObserve::class);
+}
+```
 
 ## Traits
 
@@ -48,4 +65,4 @@ Description soon.
 
 ## Authors
 
-* **Mauro Erta** - *Initial work* - [ME](https://github.com/mauroerta)
+* **Mauro Erta** - [ME](https://github.com/mauroerta)

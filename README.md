@@ -8,7 +8,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-Install Laravel: [Laravel](https://laravel.com/)
+Install [Laravel](https://laravel.com/):
 
 ```
 laravel new my-project
@@ -47,7 +47,8 @@ Example of make:observer command:
 php artisan make:observer UserObserver --observe=App\\User
 ```
 
-Now you have a new file (UserObserver.php) in app/Observers/, now edit the AppServiceProvider.php:
+Now you have a new file (UserObserver.php) in app/Observers/,
+Register the observer in the AppServiceProvider:
 
 ```
 namespace App\Providers;
@@ -68,6 +69,8 @@ class AppServiceProvider extends ServiceProvider
         App\User::observe(UserObserver::class);
     }
 ```
+
+More information about Observers can be found here: [Laravel Observers](https://laravel.com/docs/5.6/eloquent#observers)
 
 ## Traits
 

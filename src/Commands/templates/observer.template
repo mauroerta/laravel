@@ -47,6 +47,26 @@ class {{name}}
     }
 
     /**
+     * Listen to the {{class}} saving event.
+     *
+     * @param  {{class}} {{object}}
+     * @return void
+     */
+    public function saving({{class}} {{object}}) {
+        //
+    }
+
+    /**
+     * Listen to the {{class}} saved event.
+     *
+     * @param  {{class}} {{object}}
+     * @return void
+     */
+    public function saved({{class}} {{object}}) {
+        //
+    }
+
+    /**
      * Listen to the {{class}} deleting event.
      *
      * @param  {{class}} {{object}}
@@ -63,6 +83,36 @@ class {{name}}
      * @return void
      */
     public function deleted({{class}} {{object}}) {
+        //
+    }
+
+    /**
+     * Listen to the {{class}} restoring event.
+     *
+     * @param  {{class}} {{object}}
+     * @return void
+     */
+    public function restoring({{class}} {{object}}) {
+        //
+    }
+
+    /**
+     * Listen to the {{class}} restored event.
+     *
+     * @param  {{class}} {{object}}
+     * @return void
+     */
+    public function restored({{class}} {{object}}) {
+        //
+    }
+
+    /**
+     * Listen to the {{class}} retrieved event.
+     *
+     * @param  {{class}} {{object}}
+     * @return void
+     */
+    public function retrieved({{class}} {{object}}) {
         //
     }
 }

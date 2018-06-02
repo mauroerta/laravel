@@ -18,7 +18,7 @@ class Admin
         if(Auth::guest())
             abort(403);
 
-        if(Auth::user()->isAdmin())
+        if(! Auth::user()->isAdmin())
             abort(403);
 
         return $next($request);

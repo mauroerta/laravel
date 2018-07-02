@@ -10,7 +10,7 @@ trait Draftable
      * @return Illuminate\Database\Eloquent\Collection
      */
     public static function drafted() {
-        return self::whereNotNull(self::DRAFTED_AT())->get();
+        return self::whereNotNull(self::DRAFTED_AT_COLUMN_NAME())->get();
     }
 
     /**
@@ -18,7 +18,7 @@ trait Draftable
      * @return Illuminate\Database\Eloquent\Collection
      */
     public static function undrafted() {
-        return self::whereNull(self::DRAFTED_AT())->get();
+        return self::whereNull(self::DRAFTED_AT_COLUMN_NAME())->get();
     }
 
     /**
@@ -83,7 +83,7 @@ trait Draftable
      */
     public function getDraftedAtColumn()
     {
-        return self::DRAFTED_AT();
+        return self::DRAFTED_AT_COLUMN_NAME();
     }
 
     /**
@@ -103,7 +103,7 @@ trait Draftable
      */
     public function getDraftedByColumn()
     {
-        return self::DRAFTED_BY();
+        return self::DRAFTED_BY_COLUMN_NAME();
     }
 
     /**
@@ -130,7 +130,7 @@ trait Draftable
      *
      * @return string
      */
-    public static function DRAFTED_AT() {
+    public static function DRAFTED_AT_COLUMN_NAME() {
         return config('me_trait.draftable.drafted_at_column', 'drafted_at');
     }
 
@@ -139,7 +139,7 @@ trait Draftable
      *
      * @return string
      */
-    public static function DRAFTED_BY() {
+    public static function DRAFTED_BY_COLUMN_NAME() {
         return config('me_trait.draftable.drafted_by_column', 'drafted_by');
     }
 }

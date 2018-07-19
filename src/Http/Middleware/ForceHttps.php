@@ -14,7 +14,7 @@ class ForceHttps
      */
     public function handle($request, Closure $next) {
         if (!$request->secure() && env('APP_ENV') === 'production') {
-            $request->setTrustedProxies([$request->getClientIp()]);
+            $request->setTrustedProxies([$request->getClientIp()], true);
             return redirect()->secure($request->getRequestUri());
         }
 

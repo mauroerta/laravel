@@ -5,28 +5,28 @@ use Illuminate\Support\ServiceProvider;
 
 class CommandServiceProvider extends ServiceProvider
 {
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        if ($this->app->runningInConsole()) {
-            $this->commands([
-                TraitCommand::class,
-                ObserverCommand::class
-            ]);
-        }
+  /**
+   * Bootstrap any application services.
+   *
+   * @return void
+   */
+  public function boot()
+  {
+    if ($this->app->runningInConsole()) {
+      $this->commands([
+        TraitCommand::class,
+        ObserverCommand::class
+      ]);
     }
+  }
 
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        //
-    }
+  /**
+   * Register any application services.
+   *
+   * @return void
+   */
+  public function register()
+  {
+    //
+  }
 }

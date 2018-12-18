@@ -1,16 +1,16 @@
 {
-    "name": "mauroerta/notifications",
-    "description": "Some Notifications that I often use in laravel",
-    "authors": [
-        {
-            "name": "Mauro",
-            "email": "mauro.erta@gmail.com"
-        }
-    ],
-    "require": {},
-    "autoload": {
-        "psr-4": {
-            "ME\\Notifications\\": ""
-        }
-    },
+  "name": "mauroerta/notifications",
+  "description": "Some Notifications that I often use in laravel",
+  "authors": [
+    {
+      "name": "Mauro",
+      "email": "mauro.erta@gmail.com"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "ME\\Notifications\\": ""
+    }
+  },
 }

@@ -1,16 +1,16 @@
 {
-    "name": "mauroerta/traits",
-    "description": "Some Traits that I often use in laravel",
-    "authors": [
-        {
-            "name": "Mauro",
-            "email": "mauro.erta@gmail.com"
-        }
-    ],
-    "require": {},
-    "autoload": {
-        "psr-4": {
-            "ME\\Traits\\": ""
-        }
-    },
+  "name": "mauroerta/traits",
+  "description": "Some Traits that I often use in laravel",
+  "authors": [
+    {
+      "name": "Mauro",
+      "email": "mauro.erta@gmail.com"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "ME\\Traits\\": ""
+    }
+  },
 }

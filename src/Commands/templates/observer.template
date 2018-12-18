@@ -6,113 +6,124 @@ use {{observe}};
 
 class {{name}}
 {
-    /**
-     * Listen to the {{class}} creating event.
-     *
-     * @param  {{class}} {{object}}
-     * @return void
-     */
-    public function creating({{class}} {{object}}) {
-        //
-    }
+  /**
+   * Listen to the {{class}} creating event.
+   *
+   * @param  {{class}} {{object}}
+   * @return void
+   */
+  public function creating({{class}} {{object}})
+  {
+    //
+  }
 
-    /**
-     * Listen to the {{class}} created event.
-     *
-     * @param  {{class}} {{object}}
-     * @return void
-     */
-    public function created({{class}} {{object}}) {
-        //
-    }
+  /**
+   * Listen to the {{class}} created event.
+   *
+   * @param  {{class}} {{object}}
+   * @return void
+   */
+  public function created({{class}} {{object}})
+  {
+    //
+  }
 
-    /**
-     * Listen to the {{class}} updating event.
-     *
-     * @param  {{class}} {{object}}
-     * @return void
-     */
-    public function updating({{class}} {{object}}) {
-        //
-    }
+  /**
+   * Listen to the {{class}} updating event.
+   *
+   * @param  {{class}} {{object}}
+   * @return void
+   */
+  public function updating({{class}} {{object}})
+  {
+    //
+  }
 
-    /**
-     * Listen to the {{class}} updated event.
-     *
-     * @param  {{class}} {{object}}
-     * @return void
-     */
-    public function updated({{class}} {{object}}) {
-        //
-    }
+  /**
+   * Listen to the {{class}} updated event.
+   *
+   * @param  {{class}} {{object}}
+   * @return void
+   */
+  public function updated({{class}} {{object}})
+  {
+    //
+  }
 
-    /**
-     * Listen to the {{class}} saving event.
-     *
-     * @param  {{class}} {{object}}
-     * @return void
-     */
-    public function saving({{class}} {{object}}) {
-        //
-    }
+  /**
+   * Listen to the {{class}} saving event.
+   *
+   * @param  {{class}} {{object}}
+   * @return void
+   */
+  public function saving({{class}} {{object}})
+  {
+    //
+  }
 
-    /**
-     * Listen to the {{class}} saved event.
-     *
-     * @param  {{class}} {{object}}
-     * @return void
-     */
-    public function saved({{class}} {{object}}) {
-        //
-    }
+  /**
+   * Listen to the {{class}} saved event.
+   *
+   * @param  {{class}} {{object}}
+   * @return void
+   */
+  public function saved({{class}} {{object}})
+  {
+    //
+  }
 
-    /**
-     * Listen to the {{class}} deleting event.
-     *
-     * @param  {{class}} {{object}}
-     * @return void
-     */
-    public function deleting({{class}} {{object}}) {
-        //
-    }
+  /**
+   * Listen to the {{class}} deleting event.
+   *
+   * @param  {{class}} {{object}}
+   * @return void
+   */
+  public function deleting({{class}} {{object}})
+  {
+    //
+  }
 
-    /**
-     * Listen to the {{class}} deleted event.
-     *
-     * @param  {{class}} {{object}}
-     * @return void
-     */
-    public function deleted({{class}} {{object}}) {
-        //
-    }
+  /**
+   * Listen to the {{class}} deleted event.
+   *
+   * @param  {{class}} {{object}}
+   * @return void
+   */
+  public function deleted({{class}} {{object}})
+  {
+    //
+  }
 
-    /**
-     * Listen to the {{class}} restoring event.
-     *
-     * @param  {{class}} {{object}}
-     * @return void
-     */
-    public function restoring({{class}} {{object}}) {
-        //
-    }
+  /**
+   * Listen to the {{class}} restoring event.
+   *
+   * @param  {{class}} {{object}}
+   * @return void
+   */
+  public function restoring({{class}} {{object}})
+  {
+    //
+  }
 
-    /**
-     * Listen to the {{class}} restored event.
-     *
-     * @param  {{class}} {{object}}
-     * @return void
-     */
-    public function restored({{class}} {{object}}) {
-        //
-    }
+  /**
+   * Listen to the {{class}} restored event.
+   *
+   * @param  {{class}} {{object}}
+   * @return void
+   */
+  public function restored({{class}} {{object}})
+  {
+    //
+  }
 
-    /**
-     * Listen to the {{class}} retrieved event.
-     *
-     * @param  {{class}} {{object}}
-     * @return void
-     */
-    public function retrieved({{class}} {{object}}) {
-        //
-    }
+  /**
+   * Listen to the {{class}} retrieved event.
+   *
+   * @param  {{class}} {{object}}
+   * @return void
+   */
+  public function retrieved({{class}} {{object}})
+  {
+    //
+  }
 }

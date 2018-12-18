@@ -1,16 +1,16 @@
 {
-    "name": "mauroerta/commands",
-    "description": "Some Laravel commands",
-    "authors": [
-        {
-            "name": "Mauro",
-            "email": "mauro.erta@gmail.com"
-        }
-    ],
-    "require": {},
-    "autoload": {
-        "psr-4": {
-            "ME\\Commands\\": ""
-        }
-    },
+  "name": "mauroerta/commands",
+  "description": "Some Laravel commands",
+  "authors": [
+    {
+      "name": "Mauro",
+      "email": "mauro.erta@gmail.com"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "ME\\Commands\\": ""
+    }
+  },
 }

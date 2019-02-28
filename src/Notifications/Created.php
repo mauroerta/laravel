@@ -52,11 +52,11 @@ class Created extends Notification
   public function toMail($notifiable)
   {
     return (new MailMessage)
-        ->subject($this->config['message']['subject'])
-        ->greeting($this->config['message']['greeting'])
-        ->with($this->config['message']['lines'])
-        ->action($this->config['message']['action']['text'], $this->config['message']['action']['url'])
-        ->line($this->config['message']['footer']);
+      ->subject($this->config['message']['subject'])
+      ->greeting($this->config['message']['greeting'])
+      ->with($this->config['message']['lines'])
+      ->action($this->config['message']['action']['text'], $this->config['message']['action']['url'])
+      ->line($this->config['message']['footer']);
   }
 
   /**
